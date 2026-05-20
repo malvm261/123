@@ -13,36 +13,51 @@ nameserver 8.8.4.4
 
 
 -----------------------------------------------------
-(elplatai) malvm@malvm-Atlas-H256:~/Документы/projects/ElplatAI$ nslookup ghcr.io
-Server:         127.0.0.53
-Address:        127.0.0.53#53
+elplatai) malvm@malvm-Atlas-H256:~/Документы/projects/ElplatAI$ docker compose build --no-cache app 
+[+] Building 2.8s (9/15)                                                                                                                                               
+ => [internal] load local bake definitions                                                                                                                        0.0s
+ => => reading from stdin 587B                                                                                                                                    0.0s
+ => [internal] load build definition from Dockerfile                                                                                                              0.0s
+ => => transferring dockerfile: 464B                                                                                                                              0.0s
+ => [internal] load metadata for docker.io/library/python:3.13-alpine                                                                                             0.6s
+ => [internal] load metadata for ghcr.io/astral-sh/uv:0.5.31                                                                                                      0.4s
+ => [internal] load .dockerignore                                                                                                                                 0.0s
+ => => transferring context: 2B                                                                                                                                   0.0s
+ => CACHED [stage-0 1/8] FROM docker.io/library/python:3.13-alpine@sha256:420cd0bf0f3998275875e02ecd5808168cf0843cbb4d3c536432f729247b2acc                        0.0s
+ => => resolve docker.io/library/python:3.13-alpine@sha256:420cd0bf0f3998275875e02ecd5808168cf0843cbb4d3c536432f729247b2acc                                       0.0s
+ => [internal] load build context                                                                                                                                 0.0s
+ => => transferring context: 6.68kB                                                                                                                               0.0s
+ => CACHED FROM ghcr.io/astral-sh/uv:0.5.31@sha256:7bff3c3776ec467fc1437960f2c469d8beb30f536a6465a3350c647ccd260ec2                                               0.0s
+ => => resolve ghcr.io/astral-sh/uv:0.5.31@sha256:7bff3c3776ec467fc1437960f2c469d8beb30f536a6465a3350c647ccd260ec2                                                0.0s
+ => ERROR [stage-0 2/8] RUN apk add --no-cache     gcc g++ musl-dev     libgl     glib     libgomp                                                                2.0s
+------
+ > [stage-0 2/8] RUN apk add --no-cache     gcc g++ musl-dev     libgl     glib     libgomp:
+1.888 ERROR: unable to select packages:
+1.888   libgl (no such package):
+1.888     required by: world[libgl]
+------
+[+] build 0/1
+ ⠙ Image elplatai-app Building                                                                                                                                     2.9s
+Dockerfile:3
 
-Non-authoritative answer:
-Name:   ghcr.io
-Address: 140.82.121.33
+--------------------
 
-(elplatai) malvm@malvm-Atlas-H256:~/Документы/projects/ElplatAI$ cat /etc/resolv.conf
-# This is /run/systemd/resolve/stub-resolv.conf managed by man:systemd-resolved(8).
-# Do not edit.
-#
-# This file might be symlinked as /etc/resolv.conf. If you're looking at
-# /etc/resolv.conf and seeing this text, you have followed the symlink.
-#
-# This is a dynamic resolv.conf file for connecting local clients to the
-# internal DNS stub resolver of systemd-resolved. This file lists all
-# configured search domains.
-#
-# Run "resolvectl status" to see details about the uplink DNS servers
-# currently in use.
-#
-# Third party programs should typically not access this file directly, but only
-# through the symlink at /etc/resolv.conf. To manage man:resolv.conf(5) in a
-# different way, replace this symlink by a static file or a different symlink.
-#
-# See man:systemd-resolved.service(8) for details about the supported modes of
-# operation for /etc/resolv.conf.
+   2 |     
 
-nameserver 127.0.0.53
-options edns0 trust-ad
-search .
+   3 | >>> RUN apk add --no-cache \
+
+   4 | >>>     gcc g++ musl-dev \
+
+   5 | >>>     libgl \
+
+   6 | >>>     glib \
+
+   7 | >>>     libgomp
+
+   8 |     
+
+--------------------
+
+failed to solve: process "/bin/sh -c apk add --no-cache     gcc g++ musl-dev     libgl     glib     libgomp" did not complete successfully: exit code: 1
+
 (elplatai) malvm@malvm-Atlas-H256:~/Документы/projects/ElplatAI$ 
