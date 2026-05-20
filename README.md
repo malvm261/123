@@ -1,12 +1,10 @@
-FROM python:3.13-slim-bookworm
+FROM python:3.13-alpine
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential gcc g++ \
-    ca-certificates \
-    libgl1 \
-    libglib2.0-0 \
-    libgomp1 \
-    && rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache \
+    gcc g++ musl-dev \
+    libgl \
+    glib \
+    libgomp
 
 COPY --from=ghcr.io/astral-sh/uv:0.5.31 /uv /usr/local/bin/
 
