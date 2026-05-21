@@ -1,83 +1,135 @@
-i-server /mnt/raid/projects/ElplatAI # docker compose up --build -d app
-[+] Building 62.5s (9/15)
- => [internal] load local bake definitions                                                                                                                                                                  0.0s
- => => reading from stdin 522B                                                                                                                                                                              0.0s
- => [internal] load build definition from Dockerfile                                                                                                                                                        0.2s
- => => transferring dockerfile: 665B                                                                                                                                                                        0.0s
- => [internal] load metadata for ghcr.io/astral-sh/uv:0.5.31                                                                                                                                                1.2s
- => [internal] load metadata for docker.io/library/python:3.13.12-slim-bookworm@sha256:a58daefb915e1e03ad48f3ca4df8832065412c5c35cacb9d39f4229184de12b6                                                     9.5s
- => [internal] load .dockerignore                                                                                                                                                                           0.1s
- => => transferring context: 2B                                                                                                                                                                             0.0s
- => [stage-0 1/8] FROM docker.io/library/python:3.13.12-slim-bookworm@sha256:a58daefb915e1e03ad48f3ca4df8832065412c5c35cacb9d39f4229184de12b6                                                              12.4s
- => => resolve docker.io/library/python:3.13.12-slim-bookworm@sha256:a58daefb915e1e03ad48f3ca4df8832065412c5c35cacb9d39f4229184de12b6                                                                       0.5s
- => => sha256:251fa4afca5fc2d7040789882e09a87df8ee39142886da6be499f5c047824efa 248B / 248B                                                                                                                  1.5s
- => => sha256:af650bea6b21577b4b85c68a0d827914840295c2b3fce5a7f4c2c8223a6f3425 12.48MB / 12.48MB                                                                                                            2.4s
- => => sha256:da539b6761059a0a114c6671f1267b57445e3a54da023db5c28be019e40f0284 28.24MB / 28.24MB                                                                                                            5.9s
- => => sha256:35ade6973e87c7a996978364cbfbae6f92581167bdf6a3bf54b4dc4549f40afa 3.52MB / 3.52MB                                                                                                              2.1s
- => => extracting sha256:da539b6761059a0a114c6671f1267b57445e3a54da023db5c28be019e40f0284                                                                                                                   0.8s
- => => extracting sha256:35ade6973e87c7a996978364cbfbae6f92581167bdf6a3bf54b4dc4549f40afa                                                                                                                   0.4s
- => => extracting sha256:af650bea6b21577b4b85c68a0d827914840295c2b3fce5a7f4c2c8223a6f3425                                                                                                                   0.5s
- => => extracting sha256:251fa4afca5fc2d7040789882e09a87df8ee39142886da6be499f5c047824efa                                                                                                                   1.2s
- => [internal] load build context                                                                                                                                                                           1.1s
- => => transferring context: 6.55kB                                                                                                                                                                         0.0s
- => CACHED FROM ghcr.io/astral-sh/uv:0.5.31@sha256:7bff3c3776ec467fc1437960f2c469d8beb30f536a6465a3350c647ccd260ec2                                                                                         0.8s
- => => resolve ghcr.io/astral-sh/uv:0.5.31@sha256:7bff3c3776ec467fc1437960f2c469d8beb30f536a6465a3350c647ccd260ec2                                                                                          0.5s
- => ERROR [stage-0 2/8] RUN apt-get update && apt-get install -y --no-install-recommends     build-essential gcc g++     ca-certificates     libgl1     libglib2.0-0     libgomp1     && rm -rf /var/lib/  38.8s
-------
- > [stage-0 2/8] RUN apt-get update && apt-get install -y --no-install-recommends     build-essential gcc g++     ca-certificates     libgl1     libglib2.0-0     libgomp1     && rm -rf /var/lib/apt/lists/*:
-31.12 Ign:1 http://deb.debian.org/debian bookworm InRelease
-31.12 Ign:2 http://deb.debian.org/debian bookworm-updates InRelease
-31.12 Ign:3 http://deb.debian.org/debian-security bookworm-security InRelease
-32.12 Ign:1 http://deb.debian.org/debian bookworm InRelease
-32.12 Ign:2 http://deb.debian.org/debian bookworm-updates InRelease
-32.12 Ign:3 http://deb.debian.org/debian-security bookworm-security InRelease
-34.12 Ign:1 http://deb.debian.org/debian bookworm InRelease
-34.12 Ign:2 http://deb.debian.org/debian bookworm-updates InRelease
-34.12 Ign:3 http://deb.debian.org/debian-security bookworm-security InRelease
-38.12 Err:1 http://deb.debian.org/debian bookworm InRelease
-38.12   Cannot initiate the connection to debian.map.fastlydns.net:80 (2a04:4e42:6b::644). - connect (101: Network is unreachable) Could not connect to debian.map.fastlydns.net:80 (199.232.174.132), connection timed out Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:6b::644). - connect (101: Network is unreachable)
-38.12 Err:2 http://deb.debian.org/debian bookworm-updates InRelease
-38.12   Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:6b::644). - connect (101: Network is unreachable)
-38.12 Err:3 http://deb.debian.org/debian-security bookworm-security InRelease
-38.12   Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:6b::644). - connect (101: Network is unreachable)
-38.12 Reading package lists...
-38.13 W: Failed to fetch http://deb.debian.org/debian/dists/bookworm/InRelease  Cannot initiate the connection to debian.map.fastlydns.net:80 (2a04:4e42:6b::644). - connect (101: Network is unreachable) Could not connect to debian.map.fastlydns.net:80 (199.232.174.132), connection timed out Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:6b::644). - connect (101: Network is unreachable)
-38.13 W: Failed to fetch http://deb.debian.org/debian/dists/bookworm-updates/InRelease  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:6b::644). - connect (101: Network is unreachable)
-38.13 W: Failed to fetch http://deb.debian.org/debian-security/dists/bookworm-security/InRelease  Cannot initiate the connection to deb.debian.org:80 (2a04:4e42:6b::644). - connect (101: Network is unreachable)
-38.13 W: Some index files failed to download. They have been ignored, or old ones used instead.
-38.32 Reading package lists...
-38.32 Building dependency tree...
-38.32 Reading state information...
-38.32 E: Unable to locate package build-essential
-38.32 E: Unable to locate package gcc
-38.32 E: Unable to locate package libgl1
-38.32 E: Unable to locate package libglib2.0-0
-38.32 E: Couldn't find any package by glob 'libglib2.0-0'
-38.32 E: Couldn't find any package by regex 'libglib2.0-0'
-38.32 E: Unable to locate package libgomp1
-------
-Dockerfile:3
+malvm@squid ~ $ cat /etc/squid/squid.conf
+# ==========================================
+# === СЕТИ =================================
+# ==========================================
+acl admnet src 172.21.165.0/24
+acl media_allow src 172.21.165.0/24 172.21.166.0/24 172.21.167.0/24 172.21.169.0/24 172.21.170.0/24 172.21.171.0/24 172.21.172.0/24
+acl media_deny src 172.21.168.0/24
+# Разрешённые порты
+# 8080 ammyy admin
+# 8081 portal.fedsfm.ru
+# 44444, 44335, 44334, 44333, 53 ассистент
+acl SSL_ports port 443 80 8080 8081 44444 44335 44334 44333 53
+acl Safe_ports port 21 80 443 1025-65535
+acl CONNECT method CONNECT
 
---------------------
+# ==========================================
+# === SSL BUMP =============================
+# ==========================================
 
-   2 |
+# Адреса и сайты, где нельзя bump
+acl nobump_ip dst 91.223.44.0/24
+acl ammyy_ip dst "/etc/squid/include/ammyy_admin.txt"
+acl assistant_ip dst "/etc/squid/include/assistant_ip.txt"
+acl nobump_sites ssl::server_name "/etc/squid/include/nobump_sites.txt"
 
-   3 | >>> RUN apt-get update && apt-get install -y --no-install-recommends \
+# Центр сертификации
+sslcrtd_program /usr/libexec/squid/security_file_certgen -s /var/spool/squid/ssl_db -M 4MB
+sslcrtd_children 5
 
-   4 | >>>     build-essential gcc g++ \
+# Этап SslBump
+acl step1 at_step SslBump1
 
-   5 | >>>     ca-certificates \
+# Логика SSL Bump
+ssl_bump splice assistant_ip
+ssl_bump splice ammyy_ip
+ssl_bump splice nobump_sites
+ssl_bump splice nobump_ip
+ssl_bump peek step1
+ssl_bump bump media_allow
+ssl_bump bump media_deny
+ssl_bump splice all
 
-   6 | >>>     libgl1 \
+# ==========================================
+# === МЕДИА ФИЛЬТРАЦИЯ =====================
+# ==========================================
 
-   7 | >>>     libglib2.0-0 \
+acl media_content rep_mime_type -i ^video/
+acl media_content rep_mime_type -i ^audio/
+acl media_content rep_mime_type -i application/ogg
+acl media_content rep_mime_type -i application/x-mpegurl
+acl media_content rep_mime_type -i application/vnd.apple.mpegurl
+acl media_content rep_mime_type -i application/dash+xml
 
-   8 | >>>     libgomp1 \
+acl media_urls urlpath_regex -i \.(mp4|avi|mkv|mov|wmv|flv|webm|mp3|wav|flac|aac|ogg|m4a|wma|m3u8|ts)$
+acl media_urls urlpath_regex -i /video/|/audio/|/stream/|/media/
 
-   9 | >>>     && rm -rf /var/lib/apt/lists/*
+reply_body_max_size 50 KB media_content media_deny
+reply_body_max_size 50 KB media_urls media_deny
 
-  10 |
+# ==========================================
+# === ПОРТЫ ================================
+# ==========================================
+http_port 3128 ssl-bump \
+    cert=/etc/squid/ssl_cert/myCA_combined.pem \
+    generate-host-certificates=on \
+    dynamic_cert_mem_cache_size=4MB
 
---------------------
+http_port 3130
 
-failed to solve: process "/bin/sh -c apt-get update && apt-get install -y --no-install-recommends     build-essential gcc g++     ca-certificates     libgl1     libglib2.0-0     libgomp1     && rm -rf /var/lib/apt/lists/*" did not complete successfully: exit code: 100
+visible_hostname squid.el-plat.ru
+
+# ==========================================
+# === ПРАВИЛА ДОСТУПА ======================
+# ==========================================
+
+# Доступ Ammyy
+http_access allow ammyy_ip
+http_access allow assistant_ip
+
+# Получение промежуточных сертификатов
+acl intermediate_fetching transaction_initiator certificate-fetching
+http_access allow intermediate_fetching
+
+# Общая безопасность
+http_access deny !Safe_ports
+http_access deny CONNECT !SSL_ports
+
+# Доступ к интерфейсу Squid
+http_access allow admnet manager
+http_access deny manager
+
+# Основной доступ
+http_access allow localhost
+http_access allow media_allow
+http_access allow media_deny
+
+# Все остальные запреты
+http_access deny all
+
+# ==========================================
+# === КЕШ ==================================
+# ==========================================
+
+cache_mem 3 GB
+maximum_object_size_in_memory 5 MB
+memory_replacement_policy lru
+
+cache_dir ufs /var/spool/squid 5000 16 256
+maximum_object_size 10 MB
+cache_swap_low 90
+cache_swap_high 95
+coredump_dir /var/spool/squid
+
+refresh_pattern -i \.(jpg|jpeg|png|gif|ico|bmp|tiff|svg)$     1440 90% 10080
+refresh_pattern -i \.(css|js|woff|woff2|ttf|eot)$             1440 90% 10080
+refresh_pattern -i \.(zip|gz|tgz|bz2|rar|7z|tar)$             10080 90% 43200
+refresh_pattern -i \.(pdf|doc|docx|xls|xlsx|ppt|pptx|txt)$    1440 90% 10080
+refresh_pattern -i (/cgi-bin/|\?) 0 0% 0
+refresh_pattern . 30 20% 4320
+
+pid_filename /run/squid.pid
+malvm@squid ~ $
+
+
+malvm@squid ~ $ cat /etc/squid/include/nobump_sites.txt
+.tradingview.com
+.tradingview.io
+.tvcdn.co
+.alice.yandex.ru
+lkulgost.nalog.ru
+.fedsfm.ru
+.gov.ru
+портал-тп.рф
+.kontur-f.ru
+malvm@squid ~ $
